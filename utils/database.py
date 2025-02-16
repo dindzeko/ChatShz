@@ -4,7 +4,7 @@ import streamlit as st
 class SupabaseClient:
     def __init__(self):
         try:
-            # Mengambil secrets dari Streamlit Cloud
+            # Mengambil secrets dari Streamlit Secrets
             self.supabase_url = st.secrets["SUPABASE_URL"]
             self.supabase_key = st.secrets["SUPABASE_KEY"]
             self.client = create_client(self.supabase_url, self.supabase_key)
