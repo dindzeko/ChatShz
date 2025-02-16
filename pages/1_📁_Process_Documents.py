@@ -2,11 +2,16 @@ import streamlit as st
 from utils.pdf_processor import extract_pdf_content
 from utils.gemini import GeminiProcessor
 from utils.database import SupabaseClient
+import os
 
 def process_pdfs():
     processor = GeminiProcessor()
     db = SupabaseClient()
     pdf_dir = "data"
+    
+    if not os.path.exists(pdf_dir) or len(os.listdir(pdf_dir)) == 0:
+        st.warning("⚠️ Folder 'data/' kosong atau tidak ditemukan.")
+        return
     
     for filename in os.listdir(pdf_dir):
         if filename.endswith(".pdf"):
