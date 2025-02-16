@@ -1,10 +1,12 @@
 import pdfplumber
 import google.generativeai as genai
+import streamlit as st
 import re
 import json
 from config import GEMINI_API_KEY
 
-genai.configure(api_key=GEMINI_API_KEY)
+# Configure Gemini
+genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
 model = genai.GenerativeModel('gemini-pro')
 
 PROMPT_TEMPLATE = """
