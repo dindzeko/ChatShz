@@ -7,6 +7,8 @@ class SupabaseClient:
             # Mengambil secrets dari Streamlit Secrets
             self.supabase_url = st.secrets["SUPABASE_URL"]
             self.supabase_key = st.secrets["SUPABASE_KEY"]
+            
+            # Inisialisasi klien Supabase tanpa parameter 'proxy'
             self.client = create_client(self.supabase_url, self.supabase_key)
         except Exception as e:
             st.error(f"Failed to connect to Supabase: {e}")
