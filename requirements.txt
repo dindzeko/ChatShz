@@ -1,1 +1,6 @@
 streamlit
+pdfplumber
+google-generativeai
+supabase
+python-dotenv
+regex
